@@ -1,5 +1,5 @@
 {
-  "name" : "coresite\corebundle",
+  "name" : "coresite/corebundle",
   "description" : "Bundle contains blanks for the development of applications based on Symfony 3",
   "version" : "0.1.0",
   "type" : "symfony-bundle",
