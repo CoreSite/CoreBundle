@@ -1,17 +1,17 @@
-# CoreBundle
-
-Бандл содержит заготовки для разработки приложений на базе Symfony 3.
-
 Установка и подключение
 =======================
 
 Установка:
 ----------
 
+.. code-block:: bash
+
     $ composer require coresite/corebundle
-    
+
 Подключение:
 ------------
+
+.. code-block:: php
 
     // app/AppKernel.php
     class AppKernel extends Kernel
