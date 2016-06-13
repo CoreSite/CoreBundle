@@ -1,0 +1,27 @@
+{
+  "name" : "coresite\corebundle",
+  "description" : "Bundle contains blanks for the development of applications based on Symfony 3",
+  "version" : "0.1.0",
+  "type" : "symfony-bundle",
+  "homepage": "https://github.com/CoreSite/CoreBundle",
+  "license" : "MIT",
+  "keywords" : ["core"],
+  "authors" : [{
+    "name" : "Dmitriy Shuba",
+    "email" : "dmitriy@core-site.com"
+  }],
+  "require" : {
+    "php": ">=7.0.0",
+    "symfony/symfony": ">=3.0"
+  },
+  "suggest": {
+  },
+  "autoload" : {
+    "psr-4" : { "CoreSite\\CoreBundle\\" : "" }
+  },
+  "extra" : {
+    "branch-alias" : {
+      "dev-master" : "0.1.x-dev"
+    }
+  }
+}

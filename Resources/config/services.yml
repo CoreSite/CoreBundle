@@ -1,0 +1,5 @@
+services:
+    core_site_core.core.service:
+        class: CoreSite\CoreBundle\Service\CoreService
+        arguments: ['@service_container']
+        abstract: true
