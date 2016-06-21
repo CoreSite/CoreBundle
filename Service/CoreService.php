@@ -9,6 +9,7 @@ namespace CoreSite\CoreBundle\Service;
 
 
 use Doctrine\ORM\EntityManager;
+use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
@@ -46,6 +47,11 @@ abstract class CoreService
      */
     private $authorizationChecker;
 
+    /**
+     * @var Router
+     */
+    private $router;
+
     public function __construct(Container $container)
     {
         $this->container = $container;
@@ -55,6 +61,7 @@ abstract class CoreService
         $this->eventDispatcher = $this->container->get('event_dispatcher');
         $this->tokenStorage = $this->container->get('security.token_storage');
         $this->authorizationChecker = $this->container->get('security.authorization_checker');
+        $this->router = $this->container->get('router');
     }
 
     /**
@@ -100,6 +107,22 @@ abstract class CoreService
     protected function getKernel()
     {
         return $this->kernel;
+    }
+
+    /**
+     * @return Router
+     */
+    public function getRouter()
+    {
+        return $this->router;
+    }
+
+    /**
+     * @param Router $router
+     */
+    public function setRouter($router)
+    {
+        $this->router = $router;
     }
 
 
