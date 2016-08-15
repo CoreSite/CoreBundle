@@ -19,6 +19,9 @@ abstract class HttpCode
     const POST_SUCCESS_CODE            = 201;
     const POST_SUCCESS_MESSAGE         = 'Created';
 
+    const POST_CREATED_CODE            = 201;
+    const POST_CREATED_MESSAGE         = 'Created';
+
     const PUT_SUCCESS_CODE             = 202;
     const PUT_SUCCESS_MESSAGE          = 'Updated';
 
