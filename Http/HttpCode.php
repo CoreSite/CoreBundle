@@ -33,4 +33,7 @@ abstract class HttpCode
 
     const DELETE_FAIL_CODE             = 400;
     const DELETE_FAIL_MESSAGE          = 'Not deleted';
+
+    const LOCKED_CODE                  = 423;
+    const LOCKED_MESSAGE               = 'Locked';
 }
