@@ -34,6 +34,12 @@ trait ParamFetcherController
             {
                 $filters[lcfirst($m[2])] = $value;
             }
+            elseif(($value !== null && $value != '' && is_numeric($value)) && preg_match("/^(lastDays)+([a-zA-Z]+)/", $name, $m))
+            {
+                $dt = new \DateTime();
+                $dt->sub(new \DateInterval('P' . $value . 'D'));
+                $filters[lcfirst($m[2])]['begin'] = $dt->format('Y-m-d');
+            }
         }
 
         return $filters;
