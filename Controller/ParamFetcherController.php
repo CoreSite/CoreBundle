@@ -26,7 +26,11 @@ trait ParamFetcherController
         $filters = [];
         foreach ($paramFetcher->all() as $name => $value)
         {
-            if(($value !== null && $value != '') && preg_match("/^(filter)+([a-zA-Z]+)/", $name, $m))
+            if(($value !== null && $value != '') && preg_match("/^(period)+([a-zA-Z]+)+(Begin|End)/", $name, $m))
+            {
+                $filters[strtolower($m[2])][strtolower($m[3])] = $value;
+            }
+            elseif(($value !== null && $value != '') && preg_match("/^(filter)+([a-zA-Z]+)/", $name, $m))
             {
                 $filters[strtolower($m[2])] = $value;
             }
