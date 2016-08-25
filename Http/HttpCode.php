@@ -10,6 +10,9 @@ namespace CoreSite\CoreBundle\Http;
 
 abstract class HttpCode
 {
+    const GET_SUCCESS_CODE             = 200;
+    const GET_SUCCESS_MESSAGE          = 'Success';
+
     const GET_FORBIDDEN_CODE           = 403;
     const GET_FORBIDDEN_MESSAGE        = 'Forbidden';
 
