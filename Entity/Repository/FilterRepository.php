@@ -55,10 +55,15 @@ trait FilterRepository
      * @param QueryBuilder $qb
      * @param string $alias
      * @param array $filters
-     * @return QueryBuilder
+     * @return bool|QueryBuilder
      */
     protected function andFilters(QueryBuilder $qb, string $alias, array $filters = [])
     {
+        if(empty($filters))
+        {
+            return false;
+        }
+
         $qbFilters = $qb->expr()->andX();
         foreach ($filters as $key => $value)
         {
