@@ -14,6 +14,7 @@ use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 use Symfony\Component\Security\Core\Authorization\AuthorizationChecker;
+use Symfony\Component\Translation\TranslatorInterface;
 
 abstract class CoreService
 {
@@ -52,6 +53,11 @@ abstract class CoreService
      */
     private $router;
 
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
+
     public function __construct(Container $container)
     {
         $this->container = $container;
@@ -62,6 +68,7 @@ abstract class CoreService
         $this->tokenStorage = $this->container->get('security.token_storage');
         $this->authorizationChecker = $this->container->get('security.authorization_checker');
         $this->router = $this->container->get('router');
+        $this->translator = $this->container->get('translator');
     }
 
     /**
@@ -125,5 +132,12 @@ abstract class CoreService
         $this->router = $router;
     }
 
+    /**
+     * @return TranslatorInterface
+     */
+    public function getTranslator(): TranslatorInterface
+    {
+        return $this->translator;
+    }
 
 }
