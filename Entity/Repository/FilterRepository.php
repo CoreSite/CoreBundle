@@ -55,7 +55,7 @@ trait FilterRepository
      * @param QueryBuilder $qb
      * @param string $alias
      * @param array $filters
-     * @return Andx
+     * @return QueryBuilder
      */
     protected function andFilters(QueryBuilder $qb, string $alias, array $filters = [])
     {
@@ -90,6 +90,8 @@ trait FilterRepository
             }
         }
 
-        return $qbFilters;
+        $qb->andWhere($qbFilters);
+
+        return $qb;
     }
 }
