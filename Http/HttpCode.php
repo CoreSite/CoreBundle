@@ -31,7 +31,7 @@ abstract class HttpCode
     const PUT_FAIL_CODE                = 400;
     const PUT_FAIL_MESSAGE             = 'Bad Request';
 
-    const DELETE_SUCCESS_CODE          = 201;
+    const DELETE_SUCCESS_CODE          = 200;
     const DELETE_SUCCESS_MESSAGE       = 'Deleted';
 
     const DELETE_FAIL_CODE             = 400;
