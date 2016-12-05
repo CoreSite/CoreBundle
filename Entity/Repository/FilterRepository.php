@@ -69,19 +69,26 @@ trait FilterRepository
         {
             if(is_array($value) && isset($value['begin']) && isset($value['end']))
             {
+                $DTBegin = new \DateTime($value['begin']);
+                $DTEnd = new \DateTime($value['end']);
+
                 $qbFilters->add($qb->expr()->between($alias . '.' . $key, ':' . $key .'Begin', ':' . $key . 'End'));
-                $qb->setParameter($key . 'Begin', $value['begin'] . ' 00:00:00');
-                $qb->setParameter($key . 'End', $value['end'] . ' 23:59:59');
+                $qb->setParameter($key . 'Begin', $DTBegin->format('Y-m-d H:i:s'));
+                $qb->setParameter($key . 'End', $DTEnd->format('Y-m-d H:i:s'));
             }
             elseif(is_array($value) && isset($value['begin']))
             {
+                $DTBegin = new \DateTime($value['begin']);
+
                 $qbFilters->add($qb->expr()->gte($alias . '.' . $key, ':' . $key));
-                $qb->setParameter($key, $value['begin'] . ' 00:00:00');
+                $qb->setParameter($key, $DTBegin->format('Y-m-d H:i:s'));
             }
             elseif(is_array($value) && isset($value['end']))
             {
+                $DTEnd = new \DateTime($value['end']);
+
                 $qbFilters->add($qb->expr()->lte($alias . '.' . $key, ':' . $key));
-                $qb->setParameter($key, $value['end'] . ' 23:59:59');
+                $qb->setParameter($key, $DTEnd->format('Y-m-d H:i:s'));
             }
             elseif(is_array($value))
             {
