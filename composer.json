@@ -1,7 +1,7 @@
 {
   "name" : "coresite/corebundle",
   "description" : "Bundle contains blanks for the development of applications based on Symfony 3",
-  "version" : "0.1.7",
+  "version" : "0.2.0",
   "type" : "symfony-bundle",
   "homepage": "https://github.com/CoreSite/CoreBundle",
   "license" : "MIT",
