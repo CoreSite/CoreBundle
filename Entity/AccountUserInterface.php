@@ -11,5 +11,8 @@ namespace CoreSite\CoreBundle\Entity;
 
 interface AccountUserInterface
 {
-    public function getAccount(): AccountInterface;
+    /**
+     * @return AccountInterface|null
+     */
+    public function getAccount();
 }
