@@ -140,4 +140,12 @@ abstract class CoreService
         return $this->translator;
     }
 
+    /**
+     * @return Container
+     */
+    protected function getContainer(): Container
+    {
+        return $this->container;
+    }
+
 }

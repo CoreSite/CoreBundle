@@ -11,5 +11,7 @@ namespace CoreSite\CoreBundle\Entity;
 
 interface AccountInterface
 {
+    public function getTitle();
+
     public function getEnabled(): bool;
 }
