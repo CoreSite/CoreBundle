@@ -92,9 +92,18 @@ trait FilterRepository
             }
             elseif(is_array($value) && isset($value['positive']))
             {
-                $positive = 1;
+                if($value['positive'] == "1") {
+                    $positive = 1;
+                } else {
+                    $positive = 0;
+                }
 
-                $qbFilters->add($qb->expr()->gte($alias . '.' . $key, ':' . $key));
+                if($positive == 1) {
+                    $qbFilters->add($qb->expr()->gte($alias . '.' . $key, ':' . $key));
+                } else {
+                    $qbFilters->add($qb->expr()->eq($alias . '.' . $key, ':' . $key));
+                }
+
                 $qb->setParameter($key, $positive);
             }
             elseif(is_array($value))
