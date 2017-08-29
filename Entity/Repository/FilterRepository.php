@@ -90,6 +90,13 @@ trait FilterRepository
                 $qbFilters->add($qb->expr()->lte($alias . '.' . $key, ':' . $key));
                 $qb->setParameter($key, $DTEnd->format('Y-m-d H:i:s'));
             }
+            elseif(is_array($value) && isset($value['positive']))
+            {
+                $positive = 1;
+
+                $qbFilters->add($qb->expr()->gte($alias . '.' . $key, ':' . $key));
+                $qb->setParameter($key, $positive);
+            }
             elseif(is_array($value))
             {
                 $qbFilters->add($qb->expr()->in($alias . '.' . $key, ':'.$key));

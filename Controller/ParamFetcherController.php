@@ -34,9 +34,9 @@ trait ParamFetcherController
             {
                 $filters[lcfirst($m[2])] = $value;
             }
-            elseif(($value !== null && $value != '') && preg_match("/^(is)+([a-zA-Z]+)/", $name, $m))
+            elseif(($value !== null && $value != '') && preg_match("/^(positive)+([a-zA-Z]+)/", $name, $m))
             {
-                $filters[lcfirst($m[2])]['is'] = $value;
+                $filters[lcfirst($m[2])]['positive'] = $value;
             }
             elseif(($value !== null && $value != '' && is_numeric($value)) && preg_match("/^(lastDays)+([a-zA-Z]+)/", $name, $m))
             {
