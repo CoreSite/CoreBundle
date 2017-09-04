@@ -13,10 +13,14 @@ use FOS\RestBundle\Request\ParamFetcher;
 
 trait ParamFetcherController
 {
-    protected function paramFetcherLimit(ParamFetcher $paramFetcher)
+    protected function paramFetcherLimit(ParamFetcher $paramFetcher, $maxLimit = null)
     {
         $offset = null == (int)$paramFetcher->get('offset') ? 0 : (int)$paramFetcher->get('offset');
         $limit = $paramFetcher->get('limit');
+
+        if($maxLimit !== null && $limit > $maxLimit) {
+            $limit = $maxLimit;
+        }
 
         return ['offset' => $offset, 'limit' => $limit];
     }
