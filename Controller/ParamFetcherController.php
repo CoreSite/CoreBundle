@@ -18,7 +18,7 @@ trait ParamFetcherController
         $offset = null == (int)$paramFetcher->get('offset') ? 0 : (int)$paramFetcher->get('offset');
         $limit = $paramFetcher->get('limit');
 
-        if($maxLimit === null || (is_numeric($limit) && $limit > $maxLimit)) {
+        if($maxLimit !== null && ($limit === null || (is_numeric($limit) && $limit > $maxLimit))) {
             $limit = $maxLimit;
         }
 
