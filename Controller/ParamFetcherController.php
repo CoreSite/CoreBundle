@@ -61,7 +61,7 @@ trait ParamFetcherController
     protected function paramFetcherSearch(ParamFetcher $paramFetcher)
     {
         $search = null;
-        if(preg_match("/\w{3}/", $paramFetcher->get('search')))
+        if(preg_match("/\-\:\s\w{3,}/", $paramFetcher->get('search')))
         {
             $search = $paramFetcher->get('search');
         }
